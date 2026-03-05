@@ -21,7 +21,7 @@
                     <div class="item" style="background-image:url({{ asset('uploads/'.$single_room_data->featured_photo) }});">
                         <div class="bg"></div>
                     </div>
-                    
+
                     @foreach($single_room_data->rRoomPhoto as $item)
                     <div class="item" style="background-image:url({{ asset('uploads/'.$item->photo) }});">
                         <div class="bg"></div>
@@ -29,7 +29,7 @@
                     @endforeach
 
                 </div>
-                
+
                 <div class="description">
                     {!! $single_room_data->description !!}
                 </div>
@@ -97,7 +97,7 @@
                     <div class="widget">
                         <h2>Room Price per Night</h2>
                         <div class="price">
-                            ${{ $single_room_data->price }}
+                            NGN {{ $single_room_data->price }}
                         </div>
                     </div>
                     <div class="widget">

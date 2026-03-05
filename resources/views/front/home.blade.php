@@ -22,7 +22,7 @@
     </div>
 </div>
 
- 
+
 <div class="search-section">
     <div class="container">
         <form action="{{ route('cart_submit') }}" method="post">
@@ -69,7 +69,7 @@
 <div class="home-feature">
     <div class="container">
         <div class="row">
-            
+
             @foreach($feature_all as $item)
             <div class="col-md-3">
                 <div class="inner">
@@ -101,7 +101,7 @@
         </div>
         <div class="row">
             @foreach($room_all as $item)
-            @if($loop->iteration>$global_setting_data->home_room_total) 
+            @if($loop->iteration>$global_setting_data->home_room_total)
             @break
             @endif
             <div class="col-md-3">
@@ -112,7 +112,7 @@
                     <div class="text">
                         <h2><a href="{{ route('room_detail',$item->id) }}">{{ $item->name }}</a></h2>
                         <div class="price">
-                            ${{ $item->price }}/night
+                            NGN {{ $item->price }}/night
                         </div>
                         <div class="button">
                             <a href="{{ route('room_detail',$item->id) }}" class="btn btn-primary">See Detail</a>
@@ -181,7 +181,7 @@
         <div class="row">
 
             @foreach($post_all as $item)
-            @if($loop->iteration>$global_setting_data->home_latest_post_total) 
+            @if($loop->iteration>$global_setting_data->home_latest_post_total)
             @break
             @endif
             <div class="col-md-4">
@@ -203,7 +203,7 @@
                 </div>
             </div>
             @endforeach
-            
+
         </div>
     </div>
 </div>

@@ -67,6 +67,7 @@ Route::post('/payment/stripe/{price}', [BookingController::class, 'stripe'])->na
 
 
 /* Admin */
+Route::get('/admin', [AdminLoginController::class, 'index'])->name('admin_login');
 Route::get('/admin/login', [AdminLoginController::class, 'index'])->name('admin_login');
 Route::post('/admin/login-submit', [AdminLoginController::class, 'login_submit'])->name('admin_login_submit');
 Route::get('/admin/logout', [AdminLoginController::class, 'logout'])->name('admin_logout');

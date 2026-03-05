@@ -3,19 +3,19 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		
+
         <meta name="description" content="">
-        <title>Hotel Website</title>        
-		
+        <title>BELMORRIS HOTEL & BAR</title>
+
         <link rel="icon" type="image/png" href="{{ asset('uploads/'.$global_setting_data->favicon) }}">
 
         @include('front.layout.styles')
 
-        @include('front.layout.scripts')        
-        
+        @include('front.layout.scripts')
+
 
         <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;500&display=swap" rel="stylesheet">
-        
+
         <!-- Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id={{ $global_setting_data->analytic_id }}"></script>
         <script>
@@ -28,13 +28,13 @@
         <style>
             .main-nav nav .navbar-nav .nav-item a:hover,
             .main-nav nav .navbar-nav .nav-item:hover a,
-            .slide-carousel.owl-carousel .owl-nav .owl-prev:hover, 
+            .slide-carousel.owl-carousel .owl-nav .owl-prev:hover,
             .slide-carousel.owl-carousel .owl-nav .owl-next:hover,
             .home-feature .inner .icon i,
             .home-rooms .inner .text .price,
             .home-rooms .inner .text .button a,
             .blog-item .inner .text .button a,
-            .room-detail-carousel.owl-carousel .owl-nav .owl-prev:hover, 
+            .room-detail-carousel.owl-carousel .owl-nav .owl-prev:hover,
             .room-detail-carousel.owl-carousel .owl-nav .owl-next:hover {
                 color: {{ $global_setting_data->theme_color_1 }};
             }
@@ -60,10 +60,10 @@
             }
 
             .slider .text .button a,
-            .slide-carousel.owl-carousel .owl-nav .owl-prev:hover, 
+            .slide-carousel.owl-carousel .owl-nav .owl-prev:hover,
             .slide-carousel.owl-carousel .owl-nav .owl-next:hover,
             .search-section button[type="submit"],
-            .room-detail-carousel.owl-carousel .owl-nav .owl-prev:hover, 
+            .room-detail-carousel.owl-carousel .owl-nav .owl-prev:hover,
             .room-detail-carousel.owl-carousel .owl-nav .owl-next:hover,
             .room-detail .amenity .item {
                 border-color: {{ $global_setting_data->theme_color_1 }}!important;
@@ -80,7 +80,7 @@
 
     </head>
     <body>
-        
+
         <div class="top">
             <div class="container">
                 <div class="row">
@@ -90,7 +90,7 @@
                             @if($global_setting_data->top_bar_phone != '')
                             <li class="phone-text">{{ $global_setting_data->top_bar_phone }}</li>
                             @endif
-                            
+
                             @if($global_setting_data->top_bar_email != '')
                             <li class="email-text">{{ $global_setting_data->top_bar_email }}</li>
                             @endif
@@ -119,7 +119,7 @@
                                 <li class="menu"><a href="{{ route('customer_login') }}">{{ $global_page_data->signin_heading }}</a></li>
                                 @endif
 
-                            @else   
+                            @else
 
                                 <li class="menu"><a href="{{ route('customer_home') }}">Dashboard</a></li>
 
@@ -136,20 +136,20 @@
 
             <!-- Menu For Mobile Device -->
             <div class="mobile-nav">
-                <a href="index.html" class="logo">
+                <a href="{{ route('home') }}" class="logo">
                     <img src="{{ asset('uploads/'.$global_setting_data->logo) }}" alt="">
                 </a>
             </div>
-        
+
             <!-- Menu For Desktop Device -->
             <div class="main-nav">
                 <div class="container">
                     <nav class="navbar navbar-expand-md navbar-light">
                         <a class="navbar-brand" href="{{ route('home') }}">
-                            <img src="{{ asset('uploads/'.$global_setting_data->logo) }}" alt="">
+                            <img  height="350" src="{{ asset('uploads/'.$global_setting_data->logo) }}" alt="">
                         </a>
                         <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
-                            <ul class="navbar-nav ml-auto">        
+                            <ul class="navbar-nav ml-auto">
                                 <li class="nav-item">
                                     <a href="{{ route('home') }}" class="nav-link">Home</a>
                                 </li>
@@ -182,7 +182,7 @@
                                             <a href="{{ route('photo_gallery') }}" class="nav-link">{{ $global_page_data->photo_gallery_heading }}</a>
                                         </li>
                                         @endif
-                                        
+
                                         @if($global_page_data->video_gallery_status == 1)
                                         <li class="nav-item">
                                             <a href="{{ route('video_gallery') }}" class="nav-link">{{ $global_page_data->video_gallery_heading }}</a>
@@ -213,7 +213,7 @@
             </div>
         </div>
 
-        
+
         @yield('main_content')
 
 
@@ -252,7 +252,7 @@
                                 @if($global_page_data->terms_status == 1)
                                 <li><a href="{{ route('terms') }}">{{ $global_page_data->terms_heading }}</a></li>
                                 @endif
-                                
+
                                 @if($global_page_data->privacy_status == 1)
                                 <li><a href="{{ route('privacy') }}">{{ $global_page_data->privacy_heading }}</a></li>
                                 @endif
@@ -263,8 +263,8 @@
                             </ul>
                         </div>
                     </div>
-                    
-                    
+
+
                     <div class="col-md-3">
                         <div class="item">
                             <h2 class="heading">Contact</h2>
@@ -309,7 +309,7 @@
                                 @if($global_setting_data->pinterest != '')
                                 <li><a href="{{ $global_setting_data->pinterest }}"><i class="fa fa-pinterest-p"></i></a></li>
                                 @endif
-                                
+
                             </ul>
                         </div>
                     </div>
@@ -318,7 +318,7 @@
                         <div class="item">
                             <h2 class="heading">Newsletter</h2>
                             <p>
-                                In order to get the latest news and other great items, please subscribe us here: 
+                                In order to get the latest news and other great items, please subscribe us here:
                             </p>
                             <form action="{{ route('subscriber_send_email') }}" method="post" class="form_subscribe_ajax">
                                 @csrf
@@ -340,11 +340,11 @@
         <div class="copyright">
             {{ $global_setting_data->copyright }}
         </div>
-     
+
         <div class="scroll-top">
             <i class="fa fa-angle-up"></i>
         </div>
-		
+
         @include('front.layout.scripts_footer')
 
         @if(session()->get('error'))
@@ -401,13 +401,13 @@
                                     message: data.success_message,
                                 });
                             }
-                            
+
                         }
                     });
                 });
             })(jQuery);
         </script>
         <div id="loader"></div>
-		
+
    </body>
 </html>

@@ -21,7 +21,7 @@ class AdminSettingController extends Controller
             $request->validate([
                 'logo' => 'image|mimes:jpg,jpeg,png,gif'
             ]);
-            unlink(public_path('uploads/'.$obj->logo));
+            @unlink(public_path('uploads/'.$obj->logo));
             $ext = $request->file('logo')->extension();
             $final_name = time().'.'.$ext;
             $request->file('logo')->move(public_path('uploads/'),$final_name);
@@ -31,7 +31,7 @@ class AdminSettingController extends Controller
             $request->validate([
                 'favicon' => 'image|mimes:jpg,jpeg,png,gif'
             ]);
-            unlink(public_path('uploads/'.$obj->favicon));
+            @unlink(public_path('uploads/'.$obj->favicon));
             $ext = $request->file('favicon')->extension();
             $final_name = time().'.'.$ext;
             $request->file('favicon')->move(public_path('uploads/'),$final_name);

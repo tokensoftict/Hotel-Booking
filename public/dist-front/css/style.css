@@ -18,7 +18,7 @@ h1, h2, h3, h4, h5, h6 {
 	color: red;
 }
 .bg-website {
-	background: #e75542!important;
+	background: #020817! important;
 	border: 0;
 }
 .ml-auto {
@@ -37,10 +37,10 @@ p {
 }
 
 .dropdown-item.active, .dropdown-item:active {
-	background-color: #e75542;
+	background-color: #020817;
 }
 .primary-color {
-	color: #e75542;
+	color: #020817;
 }
 .primary-color:hover {
 	color: #333;
@@ -110,7 +110,7 @@ select {
 .top ul li a sup {
 	color: rgb(255, 0, 0);
 }
-@media (max-width: 991px) { 
+@media (max-width: 991px) {
 	.top {
 		padding-top: 3px;
 		padding-bottom: 3px;
@@ -267,10 +267,10 @@ select {
 	height: 50px;
 }
 .mean-container a.meanmenu-reveal span {
-	background: #e75542;
+	background: #020817;
 }
 .mean-container a.meanmenu-reveal {
-	color: #e75542;
+	color: #020817;
 }
 
 
@@ -287,7 +287,7 @@ select {
 	line-height: 50px;
 	bottom: 20px;
 	right: 20px;
-	background: #e75542;
+	background: #020817;
 	color: #fff;
 	opacity: 0.7;
 	z-index: 9999;
@@ -355,10 +355,10 @@ select {
     font-weight: 700;
     text-transform: uppercase;
     display: inline-block;
-    background: #e75542;
+    background: #020817;
     color: #fff;
     text-decoration: none;
-    border: 1px solid #e75542;
+    border: 1px solid #020817;
     border-radius: 3px;
     -webkit-border-radius: 3px;
     padding: 14px 45px;
@@ -393,8 +393,8 @@ select {
 }
 .slide-carousel.owl-carousel .owl-nav .owl-prev:hover,
 .slide-carousel.owl-carousel .owl-nav .owl-next:hover {
-    color: #e75542;
-    border: 2px solid #e75542;
+    color: #020817;
+    border: 2px solid #020817;
 }
 
 
@@ -418,15 +418,15 @@ select {
 .search-section button[type="submit"] {
 	width: 100%;
 	font-size: 16px;
-	background: #e75542;
-	border: 1px solid #e75542;
+	background: #020817;
+	border: 1px solid #020817;
 	font-weight: 600;
 }
 @media (max-width: 767px) {
 	.search-section .form-control,
 	.search-section .form-select {
 		margin-bottom: 10px;
-	}	
+	}
 }
 .daterangepicker {
 	z-index: 99999;
@@ -440,7 +440,7 @@ select {
 .home-feature {
 	padding-top: 50px;
 	padding-bottom: 20px;
-	background: #f0f0f0;	
+	background: #f0f0f0;
 }
 .home-feature .inner {
 	margin-bottom: 40px;
@@ -454,8 +454,8 @@ select {
 	height: 100px;
 	line-height: 100px;
 	text-align: center;
-	color: #e75542;
-	background: #ffd3ce;
+	color: #020817;
+	background: #020817;
 	border-radius: 10px;
 	font-size: 60px;
 }
@@ -502,13 +502,13 @@ select {
 	color: #333;
 }
 .home-rooms .inner .text .price {
-	color: #e75542;
+	color: #020817;
 	margin-bottom: 10px;
 	font-weight: 700;
 }
 .home-rooms .inner .text .button a {
 	background: #ffe7e2;
-	color: #e75542;
+	color: #020817;
 	border: 0;
 	font-size: 16px;
 	width: 100%;
@@ -518,7 +518,7 @@ select {
 	text-align: center;
 }
 .home-rooms .big-button a {
-	background: #e75542;
+	background: #020817;
 	color: #fff;
 	padding: 10px 25px;
 	text-transform: uppercase;
@@ -564,7 +564,7 @@ select {
 }
 .blog-item .inner .text .button a {
 	background: #ffe7e2;
-	color: #e75542;
+	color: #020817;
 	border: 0;
 	font-size: 16px;
 	width: 100%;
@@ -595,7 +595,7 @@ select {
 }
 .footer input[type="submit"] {
 	width: 100%;
-	background: #e75542;
+	background: #020817;
 	border: 0;
 	margin-top: 10px;
 }
@@ -631,7 +631,7 @@ select {
 }
 .footer ul.social li a {
 	color: #fff;
-	background: #e75542;
+	background: #020817;
 	width: 30px;
 	height: 30px;
 	line-height: 30px;
@@ -801,7 +801,7 @@ select {
 }
 .video-gallery .video-thumb img {
 	width: 100%;
-	height: auto;	
+	height: auto;
 }
 .video-gallery .video-thumb .icon {
 	position: absolute;
@@ -989,7 +989,7 @@ select {
 .testimonial-carousel .owl-dots .owl-dot {
 	width: 24px;
 	height: 24px;
-	background: #e75542;
+	background: #020817;
 	border: 7px solid #fff;
 	border-radius: 50%;
 	display: inline-block;
@@ -1011,7 +1011,7 @@ select {
 	height: 50px;
 	line-height: 48px;
 	background: #fff;
-	color: #e75542;
+	color: #020817;
 	margin-top: -25px;
 	transition: all 0.3s;
 	-webkit-transition: all 0.3s;
@@ -1024,7 +1024,7 @@ select {
 }
 .testimonial-carousel .owl-nav .owl-prev:hover,
 .testimonial-carousel .owl-nav .owl-next:hover {
-	color: #e75542;
+	color: #020817;
 	background: #fff;
 }
 
@@ -1093,8 +1093,8 @@ select {
 }
 .room-detail-carousel.owl-carousel .owl-nav .owl-prev:hover,
 .room-detail-carousel.owl-carousel .owl-nav .owl-next:hover {
-    color: #e75542;
-    border: 2px solid #e75542;
+    color: #020817;
+    border: 2px solid #020817;
 }
 .room-detail .description {
 	margin-bottom: 25px;
@@ -1108,7 +1108,7 @@ select {
 }
 .room-detail .amenity .item {
 	background: #ffe7e2;
-	border: 1px solid #e75542;
+	border: 1px solid #020817;
 	padding: 15px 10px;
 	margin-bottom: 15px;
 }
@@ -1170,7 +1170,7 @@ select {
 }
 .room-detail .right .widget .book-now {
 	margin-top: 20px;
-	background: #e75542;
+	background: #020817;
 	color: #fff;
 	border: 0;
 	font-size: 16px;
@@ -1188,7 +1188,7 @@ select {
 .cart .small {
 	font-size: 13px;
 }
-.cart .table-cart tr th, 
+.cart .table-cart tr th,
 .cart .table-cart tr td {
 	border: 1px solid #c9c9c9!important;
 }
@@ -1207,7 +1207,7 @@ select {
 	font-weight: 600;
 }
 .cart a.cart-delete-link {
-	color: #e75542;
+	color: #020817;
 	font-size: 18px;
 }
 .cart input[type="number"] {
