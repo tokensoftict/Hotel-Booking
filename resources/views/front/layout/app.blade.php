@@ -88,6 +88,91 @@
             .top ul li a:hover {
                 color: #f1c40f !important;
             }
+
+            /* Floating Cart CSS */
+            .floating-cart {
+                position: fixed;
+                bottom: 100px;
+                right: 30px;
+                background: {{ $global_setting_data->theme_color_1 }};
+                color: #fff;
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 24px;
+                cursor: pointer;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+                z-index: 9998;
+                transition: transform 0.3s ease;
+            }
+            .floating-cart:hover { transform: scale(1.1); color: #fff; }
+            .cart-count {
+                position: absolute;
+                top: -5px;
+                right: -5px;
+                background: #ff3b3b;
+                color: #fff;
+                width: 24px;
+                height: 24px;
+                border-radius: 50%;
+                font-size: 12px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border: 2px solid #fff;
+            }
+            .cart-sidebar {
+                position: fixed;
+                top: 0;
+                right: -350px;
+                width: 350px;
+                height: 100%;
+                background: #fff;
+                box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+                z-index: 10000;
+                transition: right 0.3s ease;
+                display: flex;
+                flex-direction: column;
+            }
+            .cart-sidebar.active { right: 0; }
+            .cart-sidebar-header {
+                padding: 20px;
+                background: #f8f9fa;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                border-bottom: 1px solid #ddd;
+            }
+            .cart-sidebar-body {
+                flex: 1;
+                overflow-y: auto;
+                padding: 20px;
+            }
+            .cart-item {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 15px;
+                padding-bottom: 10px;
+                border-bottom: 1px solid #eee;
+            }
+            .item-info strong { display: block; font-size: 14px; color: #333; }
+            .item-info small { color: #888; font-size: 11px; }
+            .cart-sidebar-footer {
+                padding: 20px;
+                background: #f8f9fa;
+                border-top: 1px solid #ddd;
+            }
+            .cart-sidebar-footer .total {
+                font-size: 18px;
+                font-weight: bold;
+                margin-bottom: 15px;
+                text-align: right;
+                color: #333;
+            }
+            .close-cart { font-size: 30px; cursor: pointer; color: #333; }
         </style>
 
     </head>
@@ -425,6 +510,59 @@
             })(jQuery);
         </script>
         <div id="loader"></div>
+
+    @if(session()->has('cart_room_id') && count(session()->get('cart_room_id')) > 0)
+        <!-- Floating Cart Button -->
+        <div class="floating-cart" onclick="toggleCartSidebar()">
+            <i class="fa fa-shopping-cart"></i>
+            <span class="cart-count">{{ count(session()->get('cart_room_id')) }}</span>
+        </div>
+
+        <!-- Cart Sidebar -->
+        <div id="cartSidebar" class="cart-sidebar">
+            <div class="cart-sidebar-header">
+                <h4 class="mb-0">Your Cart</h4>
+                <span class="close-cart" onclick="toggleCartSidebar()">&times;</span>
+            </div>
+            <div class="cart-sidebar-body">
+                @php $total = 0; @endphp
+                @foreach(session()->get('cart_room_id') as $key => $room_id)
+                    @php
+                        $room = DB::table('rooms')->where('id', $room_id)->first();
+                        $checkin = session()->get('cart_checkin_date')[$key];
+                        $checkout = session()->get('cart_checkout_date')[$key];
+                        $d1 = explode('/', $checkin);
+                        $d2 = explode('/', $checkout);
+                        $d1_new = $d1[2].'-'.$d1[1].'-'.$d1[0];
+                        $d2_new = $d2[2].'-'.$d2[1].'-'.$d2[0];
+                        $t1 = strtotime($d1_new);
+                        $t2 = strtotime($d2_new);
+                        $diff = ($t2-$t1)/60/60/24;
+                        $subtotal = $room->price * $diff;
+                        $total += $subtotal;
+                    @endphp
+                    <div class="cart-item">
+                        <div class="item-info">
+                            <strong>{{ $room->name }}</strong>
+                            <small>{{ $checkin }} - {{ $checkout }}</small>
+                        </div>
+                        <div class="item-price">₦{{ number_format($subtotal) }}</div>
+                    </div>
+                @endforeach
+            </div>
+            <div class="cart-sidebar-footer">
+                <div class="total">Total: ₦{{ number_format($total) }}</div>
+                <a href="{{ route('checkout') }}" class="btn btn-primary btn-block mb-2">Checkout Now</a>
+                <a href="{{ route('cart') }}" class="btn btn-outline-secondary btn-sm btn-block">View Full Cart</a>
+            </div>
+        </div>
+    @endif
+
+    <script>
+        function toggleCartSidebar() {
+            document.getElementById('cartSidebar').classList.toggle('active');
+        }
+    </script>
 
    </body>
 </html>
