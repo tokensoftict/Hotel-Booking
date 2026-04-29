@@ -24,49 +24,49 @@
                         if(session()->has('billing_name')) {
                             $billing_name = session()->get('billing_name');
                         } else {
-                            $billing_name = Auth::guard('customer')->user()->name;
+                            $billing_name = Auth::guard('customer')->check() ? Auth::guard('customer')->user()->name : '';
                         }
 
                         if(session()->has('billing_email')) {
                             $billing_email = session()->get('billing_email');
                         } else {
-                            $billing_email = Auth::guard('customer')->user()->email;
+                            $billing_email = Auth::guard('customer')->check() ? Auth::guard('customer')->user()->email : '';
                         }
 
                         if(session()->has('billing_phone')) {
                             $billing_phone = session()->get('billing_phone');
                         } else {
-                            $billing_phone = Auth::guard('customer')->user()->phone;
+                            $billing_phone = Auth::guard('customer')->check() ? Auth::guard('customer')->user()->phone : '';
                         }
 
                         if(session()->has('billing_country')) {
                             $billing_country = session()->get('billing_country');
                         } else {
-                            $billing_country = Auth::guard('customer')->user()->country;
+                            $billing_country = Auth::guard('customer')->check() ? Auth::guard('customer')->user()->country : '';
                         }
 
                         if(session()->has('billing_address')) {
                             $billing_address = session()->get('billing_address');
                         } else {
-                            $billing_address = Auth::guard('customer')->user()->address;
+                            $billing_address = Auth::guard('customer')->check() ? Auth::guard('customer')->user()->address : '';
                         }
 
                         if(session()->has('billing_state')) {
                             $billing_state = session()->get('billing_state');
                         } else {
-                            $billing_state = Auth::guard('customer')->user()->state;
+                            $billing_state = Auth::guard('customer')->check() ? Auth::guard('customer')->user()->state : '';
                         }
 
                         if(session()->has('billing_city')) {
                             $billing_city = session()->get('billing_city');
                         } else {
-                            $billing_city = Auth::guard('customer')->user()->city;
+                            $billing_city = Auth::guard('customer')->check() ? Auth::guard('customer')->user()->city : '';
                         }
 
                         if(session()->has('billing_zip')) {
                             $billing_zip = session()->get('billing_zip');
                         } else {
-                            $billing_zip = Auth::guard('customer')->user()->zip;
+                            $billing_zip = Auth::guard('customer')->check() ? Auth::guard('customer')->user()->zip : '';
                         }
                         @endphp
                         <div class="row">
@@ -103,6 +103,34 @@
                                 <input type="text" class="form-control mb_15" name="billing_zip" value="{{ $billing_zip }}">
                             </div>
                         </div>
+
+                        @if(!Auth::guard('customer')->check())
+                        <div class="row mt-3">
+                            <div class="col-lg-12">
+                                <div class="form-check mb_15">
+                                    <input class="form-check-input" type="checkbox" name="register_account" id="register_account" value="1" {{ old('register_account') ? 'checked' : '' }}>
+                                    <label class="form-check-label" for="register_account">
+                                        Create an account?
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 password-field" style="display: {{ old('register_account') ? 'block' : 'none' }};">
+                                <label for="">Password: *</label>
+                                <input type="password" class="form-control mb_15" name="password">
+                                @if($errors->has('password'))
+                                    <span class="text-danger">{{ $errors->first('password') }}</span>
+                                @endif
+                                @if($errors->has('billing_email'))
+                                    <span class="text-danger">{{ $errors->first('billing_email') }}</span>
+                                @endif
+                            </div>
+                        </div>
+                        <script>
+                            document.getElementById('register_account').addEventListener('change', function() {
+                                document.querySelector('.password-field').style.display = this.checked ? 'block' : 'none';
+                            });
+                        </script>
+                        @endif
                     </div>
                     <button type="submit" class="btn btn-primary bg-website mb_30">Continue to payment</button>
                 </form>
@@ -173,7 +201,7 @@
                                                 $t1 = strtotime($d1_new);
                                                 $t2 = strtotime($d2_new);
                                                 $diff = ($t2-$t1)/60/60/24;
-                                                echo '$'.$room_data->price*$diff;
+                                                echo '₦'.$room_data->price*$diff;
                                             @endphp
                                         </td>
                                     </tr>
@@ -183,7 +211,7 @@
                                 @endphp                                
                                 <tr>
                                     <td><b>Total:</b></td>
-                                    <td class="p_price"><b>${{ $total_price }}</b></td>
+                                    <td class="p_price"><b>₦{{ $total_price }}</b></td>
                                 </tr>
                             </tbody>
                         </table>

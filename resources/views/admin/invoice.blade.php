@@ -17,9 +17,9 @@
                         <div class="col-md-6">
                             <address>
                                 <strong>Invoice To</strong><br>
-                                {{ $customer_data->name }}<br>
-                                {{ $customer_data->address }},<br>
-                                {{ $customer_data->state }}, {{ $customer_data->city }}, {{ $customer_data->zip }}
+                                {{ $order->billing_name ?: ($customer_data ? $customer_data->name : 'Guest') }}<br>
+                                {{ $order->billing_address ?: ($customer_data ? $customer_data->address : '') }},<br>
+                                {{ $order->billing_state ?: ($customer_data ? $customer_data->state : '') }}, {{ $order->billing_city ?: ($customer_data ? $customer_data->city : '') }}, {{ $order->billing_zip ?: ($customer_data ? $customer_data->zip : '') }}
                             </address>
                         </div>
                         <div class="col-md-6 text-md-right">
@@ -71,7 +71,7 @@
                                     $diff = ($t2-$t1)/60/60/24;
                                     $sub = $room_data->price*$diff;
                                     @endphp
-                                    ${{ $sub }}
+                                    ₦{{ $sub }}
                                 </td>
                             </tr>
                             @php
@@ -84,7 +84,7 @@
                         <div class="col-lg-12 text-right">
                             <div class="invoice-detail-item">
                                 <div class="invoice-detail-name">Total</div>
-                                <div class="invoice-detail-value invoice-detail-value-lg">${{ $total }}</div>
+                                <div class="invoice-detail-value invoice-detail-value-lg">₦{{ $total }}</div>
                             </div>
                         </div>
                     </div>

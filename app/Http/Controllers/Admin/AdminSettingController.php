@@ -57,6 +57,9 @@ class AdminSettingController extends Controller
         $obj->analytic_id = $request->analytic_id;
         $obj->theme_color_1 = $request->theme_color_1;
         $obj->theme_color_2 = $request->theme_color_2;
+        $obj->paystack_public_key = $request->paystack_public_key;
+        $obj->paystack_secret_key = $request->paystack_secret_key;
+        $obj->paystack_fee_charge_by = $request->paystack_fee_charge_by;
         $obj->update();
 
         return redirect()->back()->with('success', 'Setting is updated successfully.');

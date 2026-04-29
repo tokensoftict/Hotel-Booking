@@ -71,7 +71,7 @@
                                                 </div>
                                                 <div class="form-group row bdb1 pt_10 mb_0">
                                                     <div class="col-md-4"><label class="form-label">Price (per night)</label></div>
-                                                    <div class="col-md-8">${{ $row->price }}</div>
+                                                    <div class="col-md-8">₦{{ $row->price }}</div>
                                                 </div>
                                                 <div class="form-group row bdb1 pt_10 mb_0">
                                                     <div class="col-md-4"><label class="form-label">Total Rooms</label></div>

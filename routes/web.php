@@ -62,9 +62,8 @@ Route::get('/cart/delete/{id}', [BookingController::class, 'cart_delete'])->name
 Route::get('/checkout', [BookingController::class, 'checkout'])->name('checkout');
 Route::post('/payment', [BookingController::class, 'payment'])->name('payment');
 
-Route::get('/payment/paypal/{price}', [BookingController::class, 'paypal'])->name('paypal');
-Route::post('/payment/stripe/{price}', [BookingController::class, 'stripe'])->name('stripe');
-
+Route::get('/payment/paystack/{price}', [BookingController::class, 'paystack'])->name('paystack');
+Route::get('/payment-success/{order_no}', [BookingController::class, 'payment_success'])->name('payment_success');
 
 /* Admin */
 Route::get('/admin', [AdminLoginController::class, 'index'])->name('admin_login');

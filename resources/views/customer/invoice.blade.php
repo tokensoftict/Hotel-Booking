@@ -17,9 +17,9 @@
                         <div class="col-md-6">
                             <address>
                                 <strong>Invoice To</strong><br>
-                                {{ Auth::guard('customer')->user()->name }}<br>
-                                {{ Auth::guard('customer')->user()->address }},<br>
-                                {{ Auth::guard('customer')->user()->state }}, {{ Auth::guard('customer')->user()->city }}, {{ Auth::guard('customer')->user()->zip }}
+                                {{ $order->billing_name ?: Auth::guard('customer')->user()->name }}<br>
+                                {{ $order->billing_address ?: Auth::guard('customer')->user()->address }},<br>
+                                {{ $order->billing_state ?: Auth::guard('customer')->user()->state }}, {{ $order->billing_city ?: Auth::guard('customer')->user()->city }}, {{ $order->billing_zip ?: Auth::guard('customer')->user()->zip }}
                             </address>
                         </div>
                         <div class="col-md-6 text-md-right">
@@ -71,7 +71,7 @@
                                     $diff = ($t2-$t1)/60/60/24;
                                     $sub = $room_data->price*$diff;
                                     @endphp
-                                    ${{ $sub }}
+                                    ₦{{ $sub }}
                                 </td>
                             </tr>
                             @php
@@ -84,7 +84,7 @@
                         <div class="col-lg-12 text-right">
                             <div class="invoice-detail-item">
                                 <div class="invoice-detail-name">Total</div>
-                                <div class="invoice-detail-value invoice-detail-value-lg">${{ $total }}</div>
+                                <div class="invoice-detail-value invoice-detail-value-lg">₦{{ $total }}</div>
                             </div>
                         </div>
                     </div>

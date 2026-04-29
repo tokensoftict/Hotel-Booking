@@ -86,7 +86,7 @@
                                     <td>
                                         <a href="{{ route('room_detail',$room_data->id) }}" class="room-name">{{ $room_data->name }}</a>
                                     </td>
-                                    <td>${{ $room_data->price }}</td>
+                                    <td>₦{{ $room_data->price }}</td>
                                     <td>{{ $arr_cart_checkin_date[$i] }}</td>
                                     <td>{{ $arr_cart_checkout_date[$i] }}</td>
                                     <td>
@@ -102,7 +102,7 @@
                                         $t1 = strtotime($d1_new);
                                         $t2 = strtotime($d2_new);
                                         $diff = ($t2-$t1)/60/60/24;
-                                        echo '$'.$room_data->price*$diff;
+                                        echo '₦'.$room_data->price*$diff;
                                     @endphp
                                     </td>
                                 </tr>
@@ -112,7 +112,7 @@
                             @endphp                            
                             <tr>
                                 <td colspan="8" class="tar">Total:</td>
-                                <td>${{ $total_price }}</td>
+                                <td>₦{{ $total_price }}</td>
                             </tr>
                         </tbody>
                     </table>

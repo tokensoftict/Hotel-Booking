@@ -76,6 +76,18 @@
             .cart .table-cart tr th {
                 background-color: {{ $global_setting_data->theme_color_2 }}!important;
             }
+
+            .top {
+                background-color: {{ $global_setting_data->theme_color_1 }};
+                color: #fff;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+            .top ul li, .top ul li a {
+                color: #fff !important;
+            }
+            .top ul li a:hover {
+                color: #f1c40f !important;
+            }
         </style>
 
     </head>
@@ -83,8 +95,8 @@
 
         <div class="top">
             <div class="container">
-                <div class="row">
-                    <div class="col-md-6 left-side">
+                <div class="row align-items-center">
+                    <div class="col-md-4 left-side">
                         <ul>
 
                             @if($global_setting_data->top_bar_phone != '')
@@ -97,7 +109,12 @@
 
                         </ul>
                     </div>
-                    <div class="col-md-6 right-side">
+                    <div class="col-md-4">
+                        <marquee behavior="scroll" direction="left" scrollamount="5" style="color: #fff; font-weight: 500; font-size: 15px; margin-top: 5px;">
+                            <i class="fa fa-map-marker" style="color: #f1c40f; margin-right: 5px;"></i> {{ str_replace(["\r", "\n"], " ", $global_setting_data->footer_address) }}
+                        </marquee>
+                    </div>
+                    <div class="col-md-4 right-side">
                         <ul class="right">
 
                             @if($global_page_data->cart_status == 1)
@@ -146,7 +163,7 @@
                 <div class="container">
                     <nav class="navbar navbar-expand-md navbar-light">
                         <a class="navbar-brand" href="{{ route('home') }}">
-                            <img  height="350" src="{{ asset('uploads/'.$global_setting_data->logo) }}" alt="">
+                            <img src="{{ asset('uploads/'.$global_setting_data->logo) }}" alt="Logo" style="max-height: 70px; width: auto; object-fit: contain; transform: scale(1.8); transform-origin: left center;">
                         </a>
                         <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
                             <ul class="navbar-nav ml-auto">

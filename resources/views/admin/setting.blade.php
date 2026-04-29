@@ -153,6 +153,27 @@
                                     <input type="text" class="form-control" name="theme_color_2" value="{{ $setting_data->theme_color_2 }}">
                                 </div>
 
+                                <hr>
+                                <h4 class="mb-4">Payment Settings</h4>
+
+                                <div class="mb-4">
+                                    <label class="form-label">Paystack Public Key</label>
+                                    <input type="text" class="form-control" name="paystack_public_key" value="{{ $setting_data->paystack_public_key }}">
+                                </div>
+
+                                <div class="mb-4">
+                                    <label class="form-label">Paystack Secret Key</label>
+                                    <input type="text" class="form-control" name="paystack_secret_key" value="{{ $setting_data->paystack_secret_key }}">
+                                </div>
+
+                                <div class="mb-4">
+                                    <label class="form-label">Paystack Transaction Charges Paid By</label>
+                                    <select name="paystack_fee_charge_by" class="form-control">
+                                        <option value="Merchant" @if($setting_data->paystack_fee_charge_by == 'Merchant') selected @endif>Merchant Pay charges</option>
+                                        <option value="Customer" @if($setting_data->paystack_fee_charge_by == 'Customer') selected @endif>Customer pay charges</option>
+                                    </select>
+                                </div>
+
                                 <div class="mb-4">
                                     <label class="form-label"></label>
                                     <button type="submit" class="btn btn-primary">Update</button>
